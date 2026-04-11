@@ -1,9 +1,8 @@
 package _03_More_Algorithms;
 
-import static org.junit.Assert.*;
+import org.junit.jupiter.api.Assertions;
 
-import org.junit.Test;
-
+import org.junit.jupiter.api.Test;
 /*
  * Uncomment each test and then write the corresponding method in the
  * Algorithms class to make them pass.
@@ -13,9 +12,9 @@ public class _00_MoreAndMoreTests {
 
    @Test
    public void MultTest() {
-     assertEquals("10 x 0 = 0", Algorithms.multiply(10, 0));
-     assertEquals("10 x 10 = 100", Algorithms.multiply(10, 10));
-     assertEquals("8 x 11 = 88", Algorithms.multiply(8, 11));
+     Assertions.assertEquals("10 x 0 = 0", Algorithms.multiply(10, 0));
+     Assertions.assertEquals("10 x 10 = 100", Algorithms.multiply(10, 10));
+     Assertions.assertEquals("8 x 11 = 88", Algorithms.multiply(8, 11));
    }
  
 //   @Test
