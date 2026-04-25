@@ -1,5 +1,7 @@
 package _02_Intro_To_Searching_Algorithms;
 
+import javax.swing.*;
+
 public class _01_LinearSearch {
     /*
      * When finding the location of a certain element in an array,
@@ -11,7 +13,22 @@ public class _01_LinearSearch {
         //    in the array. Return the location in the array
         //    where the value was found.
         //    If the value is not found in the array, return -1.
+        boolean valueFound = false;
+        int index = 0;
+        for (int i = 0; i<words.length; i++) {
+            if (words[i] == value) {
+                valueFound = true;
+                index = i;
+                break;
+            }
+        }
+        System.out.println(index);
 
-        return 0;
+        if (valueFound){
+            return index;
+        }
+        else {
+            return -1;
+        }
     }
 }
