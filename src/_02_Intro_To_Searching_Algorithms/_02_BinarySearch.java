@@ -21,22 +21,23 @@ public class _02_BinarySearch {
 
             // 3. create an integer called mid and set it equal
             //    to the half way point between start and end
-            int midIndex = array[start+((end-start)/2)];
+            int midIndex = start+((end-start)/2);
+            int midIndexValue = array[midIndex];
             // 4. if the array element at mid is equal to value
             //    then return mid
-            if (midIndex == value){
+            if (midIndexValue == value){
                 return start+((end-start)/2);
             }
             // 5. if the array element at mid is greater than value
             //    then return the value returned from a call to the 
             //    binarySearch method. Pass in start and mid - 1
             //    for the end variable.
-            else if (midIndex>value){
+            else if (midIndexValue>value){
                 return binarySearch(array, start, midIndex-1, value);
             }
             // 6. return the value returned from a call to the binarySearch
             //    method. Use mid + 1 as the start, and pass in end.
-            return binarySearch(array, midIndex+1, end, value);
+            return binarySearch(array, midIndex + 1, end, value);
         }
         // 7. return -1 because the value was not found
         return -1;
