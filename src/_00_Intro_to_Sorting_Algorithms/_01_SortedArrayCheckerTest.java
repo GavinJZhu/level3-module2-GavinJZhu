@@ -39,7 +39,7 @@ public class _01_SortedArrayCheckerTest {
 
     @Test
     public void stringArraySortTest() {
-        String[] unsorted = {"carrot", "pineapple", "mango", "pear"};
+        String[] unsorted = {"carrot", "pineapple", "mango", "pear", "pear"};
         String[] sorted = {"apple", "banana", "carrot", "grape"};
 
         assertFalse(_01_SortedArrayChecker.stringArraySorted(unsorted));

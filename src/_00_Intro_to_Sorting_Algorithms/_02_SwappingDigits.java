@@ -32,7 +32,7 @@ class _02_SwappingDigits {
         int median;
         int midIndex = arr.length/2;
         sortIntArray(arr);
-        median = arr[Math.round(midIndex)];
+        median = arr[midIndex];
         return median;
     }
 }

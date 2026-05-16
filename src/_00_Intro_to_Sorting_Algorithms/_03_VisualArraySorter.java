@@ -2,6 +2,8 @@ package _00_Intro_to_Sorting_Algorithms;
 
 import processing.core.PApplet;
 
+import java.util.concurrent.TimeUnit;
+
 /*
  * Goal: Create a program that sorts each rectangle by height!
  * 

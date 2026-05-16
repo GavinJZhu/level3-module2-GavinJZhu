@@ -1,5 +1,9 @@
 package _01_Sorting_Algorithms;
 
+import _00_Intro_to_Sorting_Algorithms._01_SortedArrayChecker;
+
+import java.util.Random;
+
 public class ThanosSorter extends Sorter {
     public ThanosSorter() {
         type = "Thanos";
@@ -14,7 +18,7 @@ public class ThanosSorter extends Sorter {
      * For example:
      * int[] arr = {12, 100, 200, 201, 97, 33, 100, 687};
      * 
-     * Thanos looks at this array from left to right and sees the the first
+     * Thanos looks at this array from left to right and sees the first
      * element that isn't greater than the previous one is 97
      * (12, 100, 200, 201 are all in order). In quiet rage, Thanos randomly
      * picks half of the elements in the array and removes them. In this case
@@ -45,6 +49,17 @@ public class ThanosSorter extends Sorter {
      */
     @Override
     void sort(int[] arr, SortingVisualizer display) {
-        
+        if (_01_SortedArrayChecker.intArraySorted(arr)){
+            return;
+        }
+        for (int i = 0; i<arr.length; i++){
+            for (int j = 0; j<arr.length-1; j++){
+                if (arr[j]<arr[i]){
+                    Random ran = new Random();
+                    ran.nextInt(2);
+                    if ()
+                }
+            }
+        }
     }
 }

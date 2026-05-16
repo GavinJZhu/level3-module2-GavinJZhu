@@ -112,7 +112,13 @@ public class Algorithms {
 
 
     public static List<String> sortDNA(List<String> strands){
+        for (int i = 0; i < strands.size(); i++) {
+            for (int j = 0; j < strands.size()-1; j++) {
+                if (strands.get(i).length()>strands.get(j).length()){
 
+                }
+            }
+        }
 
         return strands;
     }
