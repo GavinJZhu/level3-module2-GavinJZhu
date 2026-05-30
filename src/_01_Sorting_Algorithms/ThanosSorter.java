@@ -4,7 +4,6 @@ import _00_Intro_to_Sorting_Algorithms._01_SortedArrayChecker;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
-import java.util.Random;
 
 public class ThanosSorter extends Sorter {
     public ThanosSorter() {
@@ -49,9 +48,30 @@ public class ThanosSorter extends Sorter {
      * elements away randomly until half (in this case (n-1)/2) remain. The
      * algorithm is up to you!
      */
-    ArrayList<Integer> remainingIndexes = new ArrayList<>();
+
     @Override
-    void sort(int[] arr, SortingVisualizer display) {
+    void sort(int[] array, SortingVisualizer display) {
+        display.updateDisplay();
+        ArrayList<Integer> listWithoutZeroes = toArrayListWithoutZeros(array);
+
+        //check if temp array is sorted
+        if (_01_SortedArrayChecker.intArraySorted(arrayListToArray(listWithoutZeroes))) {
+            System.out.println("sorted!");
+            return;
+        }
+        
+
+        //otherwise, turn half of elements into 0s
+        for (int i = 0; i<listWithoutZeroes.size()/2; i++){
+            listWithoutZeroes.set(i, 0);
+        }
+        System.out.println("test");
+        array = arrayListToArray(listWithoutZeroes);
+        sort(array, display);
+        display.updateDisplay();
+    }
+
+    private static ArrayList<Integer> toArrayListWithoutZeros(int[] arr) {
         // add temporary ArrayList, which only accounts for non-zero numbers
         ArrayList<Integer> temp = new ArrayList<>();
         for (int integer : arr) {
@@ -59,34 +79,15 @@ public class ThanosSorter extends Sorter {
                 temp.add(integer);
             }
         }
+        return temp;
+    }
 
+    private static int[] arrayListToArray(ArrayList<Integer> temp) {
         //translate temp ArrayList to temp array
         int[] arrWithoutZeroes = new int[temp.size()];
-        for (int i = 0; i<temp.size(); i++){
+        for (int i = 0; i < temp.size(); i++) {
             arrWithoutZeroes[i] = temp.get(i);
         }
-
-        //check if temp array is sorted
-        if (_01_SortedArrayChecker.intArraySorted(arrWithoutZeroes)) {
-            return;
-        }
-
-        //otherwise, turn half of arrays into 0s
-
-        else {
-            for (int k = 0; k<arrWithoutZeroes.length; k++){
-                remainingIndexes.add(k);
-            }
-            for (int j = remainingIndexes.size()/2; j<arrWithoutZeroes.length; j++){
-                arr[j] = 0;
-            }
-            for (int m = 0; m<remainingIndexes.size()-1; m++){
-                remainingIndexes.remove(m);
-            }
-            display.updateDisplay();
-            System.out.println("test");
-            sort(arr, display);
-        }
-
+        return arrWithoutZeroes;
     }
 }
