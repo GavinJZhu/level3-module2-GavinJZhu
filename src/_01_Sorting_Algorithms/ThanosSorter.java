@@ -51,7 +51,7 @@ public class ThanosSorter extends Sorter {
 
     @Override
     void sort(int[] array, SortingVisualizer display) {
-        display.updateDisplay();
+        int recursions = 0;
         ArrayList<Integer> listWithoutZeroes = toArrayListWithoutZeros(array);
 
         //check if temp array is sorted
@@ -59,16 +59,20 @@ public class ThanosSorter extends Sorter {
             System.out.println("sorted!");
             return;
         }
-        
 
         //otherwise, turn half of elements into 0s
-        for (int i = 0; i<listWithoutZeroes.size()/2; i++){
-            listWithoutZeroes.set(i, 0);
+        for (int i = 0; i<array.length/2; i++){
+            array[i] = 0;
         }
-        System.out.println("test");
-        array = arrayListToArray(listWithoutZeroes);
-        sort(array, display);
+        //debug
+        for (int j = 0; j<array.length; j++) {
+            System.out.println(array[j]);
+        }
+        System.out.println("--------------------");
+
         display.updateDisplay();
+        recursions+=1;
+        sort(array, display);
     }
 
     private static ArrayList<Integer> toArrayListWithoutZeros(int[] arr) {
