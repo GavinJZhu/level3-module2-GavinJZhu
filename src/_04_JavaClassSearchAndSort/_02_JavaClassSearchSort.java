@@ -28,7 +28,7 @@ public class _02_JavaClassSearchSort {
     
     public static Boolean listSearch(List<Character> list, Character key) {
         Collections.sort(list);
-        int index = Arrays.binarySearch(list, key);
-        return null;
+        int index = Collections.binarySearch(list, key);
+        return index >= 0;
     }
 }
