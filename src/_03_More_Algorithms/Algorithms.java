@@ -98,28 +98,28 @@ public class Algorithms {
         }
         return unsortedScores;
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
     public static List<String> sortDNA(List<String> strands){
         for (int i = 0; i < strands.size(); i++) {
             for (int j = 0; j < strands.size()-1; j++) {
-                if (strands.get(i).length()>strands.get(j).length()){
-
+                if (strands.get(i).length()<strands.get(j).length()){
+                    String temp = strands.get(j);
+                    strands.set(j, strands.get(i));
+                    strands.set(i, temp);
                 }
             }
         }
-
         return strands;
+    }
+    public static List<String> sortWords(List<String> words){
+        for (int i=0; i<words.size(); i++){
+            for (int j=0; j< words.size()-1; j++){
+                if (words.get(j).compareTo(words.get(i)) > 0){
+                    String temp = words.get(j);
+                    words.set(j, words.get(i));
+                    words.set(i, temp);
+                }
+            }
+        }
+        return words;
     }
 }

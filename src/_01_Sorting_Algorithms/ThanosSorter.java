@@ -2,7 +2,6 @@ package _01_Sorting_Algorithms;
 
 import _00_Intro_to_Sorting_Algorithms._01_SortedArrayChecker;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class ThanosSorter extends Sorter {
@@ -48,10 +47,10 @@ public class ThanosSorter extends Sorter {
      * elements away randomly until half (in this case (n-1)/2) remain. The
      * algorithm is up to you!
      */
-
+    int forStatementDivisor = 1;
+    int recursions;
     @Override
     void sort(int[] array, SortingVisualizer display) {
-        int recursions = 0;
         ArrayList<Integer> listWithoutZeroes = toArrayListWithoutZeros(array);
 
         //check if temp array is sorted
@@ -61,7 +60,7 @@ public class ThanosSorter extends Sorter {
         }
 
         //otherwise, turn half of elements into 0s
-        for (int i = 0; i<array.length/2; i++){
+        for (int i = array.length/ forStatementDivisor /2; i<array.length/ forStatementDivisor; i++){
             array[i] = 0;
         }
         //debug
@@ -69,9 +68,10 @@ public class ThanosSorter extends Sorter {
             System.out.println(array[j]);
         }
         System.out.println("--------------------");
-
+        recursions++;
+        System.out.println("# of times code was run: "+recursions);
         display.updateDisplay();
-        recursions+=1;
+        forStatementDivisor = forStatementDivisor *2;
         sort(array, display);
     }
 

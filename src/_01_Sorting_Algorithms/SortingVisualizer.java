@@ -31,7 +31,7 @@ public class SortingVisualizer extends JLabel{
 
     private Sorter currentSorter;
 
-    public SortingVisualizer(Sorter sorter) {
+    public SortingVisualizer(Sorter sorter){
         currentSorter = sorter;
         display = new BufferedImage(WIDTH, HEIGHT, BufferedImage.TYPE_INT_RGB);
         setIcon(new ImageIcon(display));
