@@ -1,6 +1,7 @@
 package _03_More_Algorithms;
 
 import java.util.List;
+import java.util.Objects;
 
 /*
  * Write your methods in this class
@@ -80,7 +81,8 @@ public class Algorithms {
     }
     public static Boolean containsSOS(List<String> morseMessage) {
         for (int i=0; i<morseMessage.size(); i++){
-            if (morseMessage.get(i) == "... --- ..."){
+            if (Objects.equals(morseMessage.get(i), "... --- ...")){
+                System.out.println(morseMessage.get(i));
                 return true;
             }
         }
