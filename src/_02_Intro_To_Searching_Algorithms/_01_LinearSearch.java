@@ -16,14 +16,12 @@ public class _01_LinearSearch {
         boolean valueFound = false;
         int index = 0;
         for (int i = 0; i<words.length; i++) {
-            if (words[i] == value) {
+            if (words[i].equals(value)) {
                 valueFound = true;
                 index = i;
                 break;
             }
         }
-        System.out.println(index);
-
         if (valueFound){
             return index;
         }
